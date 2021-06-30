@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/bottom_items"
+        android:id="@+id/itemsFragment"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Items" />
+        android:title="Items"
+        app:showAsAction="always" />
     <item
-        android:id="@+id/bottom_sales"
+        android:id="@+id/discountFragment"
         android:icon="@drawable/ic_baseline_campaign_24"
-        android:title="Sales" />
+        android:title="Sales"
+        app:showAsAction="always" />
     <item
-        android:id="@+id/bottom_user"
+        android:id="@+id/userInfoFragment2"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="UserInfo" />
+        android:title="User"
+        app:showAsAction="always" />
     <item
-        android:id="@+id/bottom_basket"
+        android:id="@+id/cartFragment"
         android:icon="@drawable/ic_baseline_shopping_bag_24"
-        android:title="Basket" />
+        android:title="Cart"
+        app:showAsAction="always" />
 </menu>

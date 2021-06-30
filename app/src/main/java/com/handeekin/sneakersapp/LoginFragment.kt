@@ -1,14 +1,12 @@
 package com.handeekin.sneakersapp
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-
-class OpeningFragment : Fragment() {
+class LoginFragment : Fragment() {
 
 
 
@@ -17,13 +15,7 @@ class OpeningFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        val tasarim = inflater.inflate(R.layout.fragment_opening,container,false)
-
-
-
-        return tasarim
-
+        return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
 
