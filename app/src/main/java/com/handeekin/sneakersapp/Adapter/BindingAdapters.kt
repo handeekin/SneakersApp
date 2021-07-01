@@ -6,13 +6,13 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.squareup.picasso.Picasso
 
-@BindingAdapter("android:image_resource")
+/*@BindingAdapter("android:image_resource")
 fun setImageResource(imageView: ImageView, image_name: String) {
 
     val url = "http://upschool.canerture.com/urunler" + image_name
 
     Picasso.get().load(url).into(imageView)
-}
+}*/
 
 /*
 @BindingAdapter("android:set_price")

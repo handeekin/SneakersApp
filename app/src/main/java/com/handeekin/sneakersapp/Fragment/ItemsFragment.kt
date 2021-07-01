@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.handeekin.sneakersapp.R
 
 class ItemsFragment : Fragment() {
@@ -16,6 +17,13 @@ class ItemsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_items, container, false)
+
+
+
+    }
+
+    fun fabTikla(v:View){
+        Navigation.findNavController(v).navigate(R.id.ItemAddGecis)
     }
 
 

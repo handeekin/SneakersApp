@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        val toolbar : Tool
+
 
         val bottomNav : BottomNavigationView = findViewById(R.id.bottomNavView)
 

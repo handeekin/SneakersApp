@@ -19,8 +19,12 @@ class ItemsUsersDAORepository {
         itemsList = MutableLiveData()
     }
 
+    fun getItems(): MutableLiveData<List<ItemsClass>> {
+        return itemsList
+    }
+
     fun itemAdd(satici_adi:String, urun_adi:String, urun_fiyat:String, urun_aciklama:String, urun_gorsel_url:String) {
-        itemsusersdaoInterface.addItem(satici_adi, urun_adi, urun_fiyat, urun_aciklama, urun_gorsel_url).enqueue(object : Callback<CRUDResponse?> {
+        itemsusersdaoInterface.addItem(satici_adi = "handeekin", urun_adi="shoes", urun_fiyat="1799.99 TL", urun_aciklama="", urun_gorsel_url = "").enqueue(object : Callback<CRUDResponse?> {
             override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {}
             override fun onFailure(call: Call<CRUDResponse?>, t: Throwable) {}
         })

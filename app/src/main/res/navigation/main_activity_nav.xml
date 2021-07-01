@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/enteringActivity">
+    app:startDestination="@id/openingFragment">
 
     <fragment
         android:id="@+id/discountFragment"
@@ -24,7 +24,11 @@
         android:id="@+id/itemsFragment"
         android:name="com.handeekin.sneakersapp.ItemsFragment"
         android:label="fragment_items"
-        tools:layout="@layout/fragment_items" />
+        tools:layout="@layout/fragment_items" >
+        <action
+            android:id="@+id/ItemAddGecis"
+            app:destination="@id/itemAddingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/openingFragment"
         android:name="com.handeekin.sneakersapp.OpeningFragment"
@@ -33,15 +37,7 @@
         <action
             android:id="@+id/action_openingFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/action_openingFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.handeekin.sneakersapp.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.handeekin.sneakersapp.SignUpFragment"
@@ -52,4 +48,8 @@
         android:name="com.handeekin.sneakersapp.EnteringActivity"
         android:label="activity_entering"
         tools:layout="@layout/activity_entering" />
+    <fragment
+        android:id="@+id/itemAddingFragment"
+        android:name="com.handeekin.sneakersapp.Fragment.ItemAddingFragment"
+        android:label="ItemAddingFragment" />
 </navigation>
