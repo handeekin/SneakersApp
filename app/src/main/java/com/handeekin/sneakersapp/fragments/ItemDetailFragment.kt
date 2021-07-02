@@ -1,4 +1,4 @@
-package com.handeekin.sneakersapp.Fragment
+package com.handeekin.sneakersapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.handeekin.sneakersapp.R
 
-class DiscountFragment : Fragment() {
-
+class ItemDetailFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,7 +15,7 @@ class DiscountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_discount, container, false)
+        return inflater.inflate(R.layout.fragment_item_detail, container, false)
     }
 
 

@@ -5,16 +5,17 @@
 
     <data>
         <variable
-            name="SignUpObject"
-            type="" />
+            name="itemAddingFragment"
+            type="com.handeekin.sneakersapp.fragments.ItemAddingFragment" />
     </data>
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Fragment.ItemAddingFragment">
+        tools:context=".fragments.ItemAddingFragment"
+        android:fitsSystemWindows="true"
+        android:layout_alignParentBottom="true">
 
 
         <EditText
@@ -24,7 +25,6 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="Item Price"
-            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,6 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="Item Name"
-            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextSellerName" />
@@ -46,14 +45,25 @@
             android:id="@+id/editTextTextSellerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="72dp"
             android:ems="10"
             android:hint="Seller Name"
-            android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextItemDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="Item Description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextItemPrice" />
 
         <EditText
             android:id="@+id/editTextItemUrl"
@@ -62,22 +72,23 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:hint="Item Url"
-            android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextItemPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextItemDescription" />
+
 
         <Button
             android:id="@+id/itemAddButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
-            android:onClick="@{() -> }"
+            android:layout_marginBottom="156dp"
+            android:onClick="@{() -> itemAddingFragment.addItemClicked(editTextTextSellerName.getText().toString(),editTextItemName.getText().toString(),editTextTextItemPrice.getText().toString(),editTextItemDescription.getText().toString(),editTextItemUrl.getText().toString())}"
             android:text="Item Add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

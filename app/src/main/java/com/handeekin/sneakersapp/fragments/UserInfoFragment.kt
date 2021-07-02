@@ -1,14 +1,14 @@
-package com.handeekin.sneakersapp.Fragment
+package com.handeekin.sneakersapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import com.handeekin.sneakersapp.R
 
-class ItemsFragment : Fragment() {
+
+class UserInfoFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,14 +16,7 @@ class ItemsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_items, container, false)
-
-
-
-    }
-
-    fun fabTikla(v:View){
-        Navigation.findNavController(v).navigate(R.id.ItemAddGecis)
+        return inflater.inflate(R.layout.fragment_user_info, container, false)
     }
 
 

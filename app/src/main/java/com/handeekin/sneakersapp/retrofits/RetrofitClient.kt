@@ -1,4 +1,4 @@
-package com.handeekin.sneakersapp.Retrofit
+package com.handeekin.sneakersapp.retrofits
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

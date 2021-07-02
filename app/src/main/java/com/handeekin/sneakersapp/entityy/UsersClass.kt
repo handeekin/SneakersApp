@@ -1,7 +1,8 @@
-package com.handeekin.sneakersapp.Entity
+package com.handeekin.sneakersapp.entityy
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class UsersClass(@SerializedName("id")
                  @Expose
@@ -17,5 +18,8 @@ data class UsersClass(@SerializedName("id")
                  var nameSurname:String,
                  @SerializedName("telefon")
                  @Expose
-                 var telephone:String) {
+                 var telephone:String,
+                 @SerializedName("deger")
+                 @Expose
+                 var user_val:Int):Serializable{
 }

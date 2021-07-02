@@ -1,9 +1,11 @@
-package com.handeekin.sneakersapp.Entity
+package com.handeekin.sneakersapp.entityy
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-data class ItemsClass(@SerializedName("id")
+data class ItemsClass(
+            @SerializedName("id")
             @Expose
             var id:Int,
             @SerializedName("sepet_durum")
@@ -27,5 +29,5 @@ data class ItemsClass(@SerializedName("id")
             @SerializedName("urun_indirimli_mi")
             @Expose
             var issale:Int
-            ) {
+            ):Serializable {
 }

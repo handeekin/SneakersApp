@@ -7,7 +7,10 @@
     <data>
         <variable
             name="itemsFragment"
-            type="com.handeekin.sneakersapp.Fragment.ItemsFragment" />
+            type="com.handeekin.sneakersapp.fragments.ItemsFragment" />
+        <variable
+            name="itemsAdapter"
+            type="com.handeekin.sneakersapp.adapterr.ItemsAdapter" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -28,6 +31,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/white" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adapter="@{itemsAdapter}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fab" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

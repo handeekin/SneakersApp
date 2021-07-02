@@ -7,27 +7,30 @@
 
     <fragment
         android:id="@+id/discountFragment"
-        android:name="com.handeekin.sneakersapp.DiscountFragment"
+        android:name="com.handeekin.sneakersapp.fragments.DiscountFragment"
         android:label="fragment_discount"
         tools:layout="@layout/fragment_discount" />
     <fragment
         android:id="@+id/userInfoFragment2"
-        android:name="com.handeekin.sneakersapp.UserInfoFragment"
+        android:name="com.handeekin.sneakersapp.fragments.UserInfoFragment"
         android:label="fragment_user_info"
         tools:layout="@layout/fragment_user_info" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.handeekin.sneakersapp.Fragment.CartFragment"
+        android:name="com.handeekin.sneakersapp.fragments.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/itemsFragment"
-        android:name="com.handeekin.sneakersapp.ItemsFragment"
+        android:name="com.handeekin.sneakersapp.fragments.ItemsFragment"
         android:label="fragment_items"
         tools:layout="@layout/fragment_items" >
         <action
             android:id="@+id/ItemAddGecis"
             app:destination="@id/itemAddingFragment" />
+        <action
+            android:id="@+id/itemDetailGecis"
+            app:destination="@id/itemDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/openingFragment"
@@ -35,21 +38,29 @@
         android:label="OpeningFragment"
         tools:layout="@layout/fragment_opening">
         <action
-            android:id="@+id/action_openingFragment_to_signUpFragment"
+            android:id="@+id/SignUpGecis"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/itemsGecis"
+            app:destination="@id/itemsFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.handeekin.sneakersapp.SignUpFragment"
+        android:name="com.handeekin.sneakersapp.fragments.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
-    <activity
-        android:id="@+id/enteringActivity"
-        android:name="com.handeekin.sneakersapp.EnteringActivity"
-        android:label="activity_entering"
-        tools:layout="@layout/activity_entering" />
     <fragment
         android:id="@+id/itemAddingFragment"
-        android:name="com.handeekin.sneakersapp.Fragment.ItemAddingFragment"
-        android:label="ItemAddingFragment" />
+        android:name="com.handeekin.sneakersapp.fragments.ItemAddingFragment"
+        android:label="ItemAddingFragment"
+        tools:layout="@layout/fragment_item_adding"/>
+    <fragment
+        android:id="@+id/itemDetailFragment"
+        android:name="com.handeekin.sneakersapp.fragments.ItemDetailFragment"
+        android:label="fragment_item_detail"
+        tools:layout="@layout/fragment_item_detail" >
+        <argument
+            android:name="nesne"
+            app:argType="com.handeekin.sneakersapp.entityy.ItemsClass" />
+    </fragment>
 </navigation>

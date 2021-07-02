@@ -8,20 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.handeekin.sneakersapp.Retrofit.ItemsUsersDAOInterface
-import com.handeekin.sneakersapp.ViewModel.OpeningFragmentViewModel
+import androidx.navigation.Navigation
+
+import com.handeekin.sneakersapp.viewmodels.OpeningFragmentViewModel
 import com.handeekin.sneakersapp.databinding.FragmentOpeningBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class OpeningFragment : Fragment() {
 
     private lateinit var tasarim:FragmentOpeningBinding
     private lateinit var viewModel: OpeningFragmentViewModel
-
-
 
 
     override fun onCreateView(
@@ -31,29 +27,27 @@ class OpeningFragment : Fragment() {
         // Inflate the layout for this fragment
 
 
-        val tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_opening,container,false)
+        tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_opening, container, false)
+        tasarim.openingFragment = this
 
-        tasarim.
-
-
-
+        tasarim.openingLoginButton.setOnClickListener {
 
 
+            Navigation.findNavController(it).navigate(R.id.itemsGecis)
+        }
 
+
+        tasarim.openingSignupButton.setOnClickListener {
+
+
+          Navigation.findNavController(it).navigate(R.id.SignUpGecis)
+
+        }
 
 
         return tasarim.root
 
-
-
-       /* fun SignUp(mail_adres:String,sifre:String,ad_soyad:String,telefon:String){
-
-          ItemsUsersDAOInterface.signUp("")
-
-        }
-*/
     }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,11 +61,6 @@ class OpeningFragment : Fragment() {
         viewModel.login(mail_adres,sifre)
     }
 
-
-    fun SignUp(mail_adres:String,sifre:String,ad_soyad:String,telefon:String){
-
-        viewModel.signup(mail_adres,sifre,ad_soyad,telefon)
-    }
 
 
 }

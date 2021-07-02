@@ -1,4 +1,4 @@
-package com.handeekin.sneakersapp.Entity
+package com.handeekin.sneakersapp.entityy
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
