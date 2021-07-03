@@ -6,6 +6,7 @@ import android.view.WindowManager
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.handeekin.sneakersapp.fragments.OpeningFragment
 import com.handeekin.sneakersapp.retrofits.APIUtils
 import com.handeekin.sneakersapp.retrofits.UsersDAOInterface
 

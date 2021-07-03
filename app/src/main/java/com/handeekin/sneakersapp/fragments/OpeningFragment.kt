@@ -1,6 +1,5 @@
-package com.handeekin.sneakersapp
+package com.handeekin.sneakersapp.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import com.handeekin.sneakersapp.MainActivity
+import com.handeekin.sneakersapp.R
 
 import com.handeekin.sneakersapp.viewmodels.OpeningFragmentViewModel
 import com.handeekin.sneakersapp.databinding.FragmentOpeningBinding
@@ -27,7 +28,7 @@ class OpeningFragment : Fragment() {
         // Inflate the layout for this fragment
 
 
-        tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_opening, container, false)
+        tasarim = DataBindingUtil.inflate(inflater, R.layout.fragment_opening, container, false)
         tasarim.openingFragment = this
 
         tasarim.openingLoginButton.setOnClickListener {
@@ -45,6 +46,8 @@ class OpeningFragment : Fragment() {
         }
 
 
+
+
         return tasarim.root
 
     }
@@ -60,6 +63,8 @@ class OpeningFragment : Fragment() {
     fun buttonLoginClicked(mail_adres:String,sifre:String){
         viewModel.login(mail_adres,sifre)
     }
+
+
 
 
 

@@ -7,14 +7,14 @@
     <data>
         <variable
             name="OpeningFragment"
-            type="com.handeekin.sneakersapp.OpeningFragment" />
+            type="com.handeekin.sneakersapp.fragments.OpeningFragment" />
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".OpeningFragment">
+        tools:context=".fragments.OpeningFragment">
 
 
         <androidx.appcompat.widget.Toolbar

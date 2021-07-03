@@ -26,6 +26,15 @@ interface ItemsDAOInterface {
         @Field("id") id: Int,
         @Field("urun_indirimli_mi") urun_indirimli_mi :Int): Call<CRUDResponse>
 
+    @POST("indirimli_urun_durum_degistir.php")
+    @FormUrlEncoded
+    fun get_sales_item(
+        @Field("urun_indirimli_mi") urun_indirimli_mi :Int,
+        @Field("urun_adi") urun_adi:String,
+        @Field("urun_fiyat") urun_fiyat:String,
+        @Field("urun_aciklama") urun_aciklama:String,
+        @Field("urun_gorsel_url") urun_gorsel_url:String): Call<CRUDResponse>
+
     @POST("sepet_durum_degistir.php")
     @FormUrlEncoded
     fun change_cart_situation(

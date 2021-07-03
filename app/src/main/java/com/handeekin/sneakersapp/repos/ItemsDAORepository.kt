@@ -29,7 +29,8 @@ class ItemsDAORepository {
 
     fun itemAdd(satici_adi:String, urun_adi:String, urun_fiyat:String, urun_aciklama:String, urun_gorsel_url:String) {
         itemsdaoInterface.addItem(satici_adi, urun_adi, urun_fiyat, urun_aciklama, urun_gorsel_url).enqueue(object : Callback<CRUDResponse?> {
-            override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {}
+            override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {
+            }
             override fun onFailure(call: Call<CRUDResponse?>, t: Throwable) {
                 Log.e("hata",t.localizedMessage.toString())
             }
@@ -38,7 +39,19 @@ class ItemsDAORepository {
 
     fun salesItemChange(id: Int,urun_indirimli_mi :Int) {
         itemsdaoInterface.change_sales_item(id,urun_indirimli_mi).enqueue(object : Callback<CRUDResponse?> {
-            override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {}
+            override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {
+                Log.e("response",response.body()!!.success.toString())
+                Log.e("mesaj",response.body()!!.message)
+            }
+            override fun onFailure(call: Call<CRUDResponse?>, t: Throwable) {}
+        })
+    }
+    fun getSalesItem(urun_indirimli_mi :Int,urun_adi:String, urun_fiyat:String, urun_aciklama:String, urun_gorsel_url:String) {
+        itemsdaoInterface.get_sales_item(urun_indirimli_mi = 1, urun_adi,urun_fiyat,urun_aciklama,urun_gorsel_url).enqueue(object : Callback<CRUDResponse?> {
+            override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {
+                Log.e("response",response.body()!!.success.toString())
+                Log.e("mesaj",response.body()!!.message)
+            }
             override fun onFailure(call: Call<CRUDResponse?>, t: Throwable) {}
         })
     }
@@ -61,7 +74,7 @@ class ItemsDAORepository {
                     Log.e("mesaj", "geldi")
                     Log.e("ürün id", (k.id).toString())
                     Log.e("ürün ad", k.itemName)
-                    Log.e("sepet", k.issale.toString())
+                    Log.e("indirimde mi", k.issale.toString())
 
                 }
 

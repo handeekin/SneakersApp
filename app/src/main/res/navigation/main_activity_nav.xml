@@ -9,7 +9,11 @@
         android:id="@+id/discountFragment"
         android:name="com.handeekin.sneakersapp.fragments.DiscountFragment"
         android:label="fragment_discount"
-        tools:layout="@layout/fragment_discount" />
+        tools:layout="@layout/fragment_discount" >
+        <action
+            android:id="@+id/discountDetayGecis"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userInfoFragment2"
         android:name="com.handeekin.sneakersapp.fragments.UserInfoFragment"
@@ -34,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/openingFragment"
-        android:name="com.handeekin.sneakersapp.OpeningFragment"
+        android:name="com.handeekin.sneakersapp.fragments.OpeningFragment"
         android:label="OpeningFragment"
         tools:layout="@layout/fragment_opening">
         <action

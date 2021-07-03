@@ -29,7 +29,7 @@ class ItemsFragment : Fragment() {
 
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_items, container, false)
         tasarim.itemsFragment = this
-        tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL)
 
         viewModel.itemsList.observe(viewLifecycleOwner) {
             adapter = ItemsAdapter(requireContext(), it)
