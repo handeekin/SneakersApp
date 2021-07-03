@@ -11,19 +11,18 @@ import com.handeekin.sneakersapp.repos.UserDAORepository
 
 class OpeningFragmentViewModel : ViewModel() {
 
-    private val udaoi = UserDAORepository()
+    val udaor = UserDAORepository()
     var success = MutableLiveData<Int>()
     var user = MutableLiveData<List<UsersClass>>()
 
-  /*  init {
-        login()
-        user = udaoi.getUserVal()
-    }*/
+   init {
+        user = udaor.userValidation()
+    }
 
 
     fun login(mail_adres:String, sifre:String) {
         Log.e("User signed up","$mail_adres - $sifre")
-        udaoi.getUser(mail_adres,sifre)
+        udaor.getUser(mail_adres,sifre)
         }
 
 

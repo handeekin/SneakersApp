@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.adapterr.ItemsAdapter
 import com.handeekin.sneakersapp.databinding.FragmentItemDetailBinding
+import com.handeekin.sneakersapp.viewmodels.DiscountFragmentViewModel
 import com.handeekin.sneakersapp.viewmodels.ItemDetailsFragmentViewModel
 import com.handeekin.sneakersapp.viewmodels.ItemsFragmentViewModel
 import com.squareup.picasso.Picasso
@@ -31,9 +32,6 @@ class ItemDetailFragment : Fragment() {
         val b:ItemDetailFragmentArgs by navArgs()
         val recievedItem = b.nesne
 
-        val url = "http://kasimadalan.pe.hu/yemekler/resimler/"+"${recievedItem.itemPictureUrl}"
-
-        Picasso.get().load(url).into(tasarim.imageView2)
 
         tasarim.detailObject = recievedItem
         tasarim.detailFragment = this

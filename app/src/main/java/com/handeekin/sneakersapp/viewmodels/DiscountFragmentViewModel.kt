@@ -22,10 +22,9 @@ class DiscountFragmentViewModel : ViewModel() {
 
 
     init {
+        salesitemsList = idaor.getDiscountItems()
         getSalesItems()
         success = idaor.discountSuccess()
-
-
     }
 
 
@@ -37,7 +36,7 @@ class DiscountFragmentViewModel : ViewModel() {
     }
 
     fun getSalesItems(){
-        idaor.getDiscountItems()
+        idaor.getSalesItem()
     }
 
 

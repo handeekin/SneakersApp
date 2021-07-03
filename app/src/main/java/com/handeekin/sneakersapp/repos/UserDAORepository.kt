@@ -16,10 +16,14 @@ class UserDAORepository {
     private val userVal: MutableLiveData<Int> = MutableLiveData()
     private val udaoi: UsersDAOInterface = APIUtils.getUsersDaoInterface()
 
+
     fun getUserVal(): MutableLiveData<Int>{
         return userVal
     }
 
+    fun userValidation(): MutableLiveData<List<UsersClass>>{
+        return userList
+    }
     fun getUser(mail_adres:String,sifre:String){
         udaoi.logIn(mail_adres,sifre).enqueue(object:Callback<UsersResponse>{
             override fun onFailure(call: Call<UsersResponse>, t: Throwable) {

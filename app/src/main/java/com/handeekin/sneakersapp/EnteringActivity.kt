@@ -10,5 +10,7 @@ class EnteringActivity : AppCompatActivity() {
 
 
 
+
+
     }
 }

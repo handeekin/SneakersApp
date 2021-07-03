@@ -38,8 +38,6 @@ class ItemsAdapter(var mContext: Context,
         return CardDesignHolder(tasarim)
     }
 
-
-    //görsel nesneleri burda yönetcez tıklama falan
     override fun onBindViewHolder(holder: CardDesignHolder, position: Int) {
         val item = itemsList.get(position)
         val t = holder.cardDesignBinding
@@ -49,8 +47,6 @@ class ItemsAdapter(var mContext: Context,
 
         Picasso.get().load(url).into(holder.cardDesignBinding.imageView)
 
-
-
         t.addToCartButton.setOnClickListener {
             Snackbar.make(it,"${item.itemName} sepete eklendi.",Snackbar.LENGTH_SHORT).show()
         }
@@ -59,7 +55,6 @@ class ItemsAdapter(var mContext: Context,
             val gecis = ItemsFragmentDirections.itemDetailGecis(item)
             Navigation.findNavController(it).navigate(gecis)
         }
-
 
         t.cardView.setOnClickListener {
             //karta tıklama kodu

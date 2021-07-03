@@ -1,6 +1,7 @@
 package com.handeekin.sneakersapp.adapterr
 
 import android.content.Context
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -41,12 +42,20 @@ class DiscountAdapter(var mContext: Context,
     //görsel nesneleri burda yönetcez tıklama falan
     override fun onBindViewHolder(holder: DiscountAdapter.CardDesignHolder, position: Int) {
         val item = salesItemsList.get(position)
-        val t = holder.cardDesignBinding
-        t.itemObject = item
+
         val product = salesItemsList.get(position)
         val url = product.itemPictureUrl
 
         Picasso.get().load(url).into(holder.cardDesignBinding.imageView)
+
+        var discount= listOf<String>("1,899.90 TL","1,899.90 TL","1,989.90 TL")
+        holder.cardDesignBinding.textViewTotalPrice.apply {
+            paintFlags= paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        }
+
+        holder.cardDesignBinding.discountText.text = discount[position].toString()
+        val t = holder.cardDesignBinding
+        t.itemObject = item
 
 
 
@@ -57,9 +66,7 @@ class DiscountAdapter(var mContext: Context,
 
         t.cardView.setOnClickListener {
 
-            //karta tıklama kodu
             val gecis = DiscountFragmentDirections.discountDetayGecis(item)
-
 
             Navigation.findNavController(it).navigate(gecis)
         }

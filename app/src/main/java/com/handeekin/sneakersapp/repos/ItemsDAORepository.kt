@@ -70,12 +70,9 @@ class ItemsDAORepository {
                     Log.e("ürün ad", k.itemName)
                     Log.e("indirimde mi", k.issale.toString())
                     Log.e("ürün fiyat", k.itemPrice)
-
                 }
-
             }
             override fun onFailure(call: Call<ItemsResponse?>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
     }
@@ -115,9 +112,10 @@ class ItemsDAORepository {
                     if (i.cartSituation ==1){
                         arrayList.add(i)
                     }
+                    cartItemsList.value = arrayList
 
                 }
-                cartItemsList.value = arrayList
+
 
             }
             override fun onFailure(call: Call<ItemsResponse?>, t: Throwable) {
@@ -144,7 +142,6 @@ class ItemsDAORepository {
                 val urunlerListe = response.body()!!.items
                 var arrayList = arrayListOf<ItemsClass>()
                 for (k in urunlerListe) {
-
                     Log.e("*******", "*******")
                     Log.e("mesaj", "geldi")
                     Log.e("ürün id", (k.id).toString())
@@ -152,13 +149,14 @@ class ItemsDAORepository {
                     Log.e("indirimde mi", k.issale.toString())
                     if (k.issale ==1){
                         arrayList.add(k)
+                        Log.e("indirim",k.issale.toString())
                     }
-
                 }
                 discountItemsList.value = arrayList
-
             }
             override fun onFailure(call: Call<ItemsResponse?>, t: Throwable) {
+
+                Log.e("basarız", t.localizedMessage.toString())
 
             }
         })
