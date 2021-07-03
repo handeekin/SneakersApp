@@ -8,6 +8,8 @@ import com.handeekin.sneakersapp.repos.ItemsDAORepository
 
 class ItemAddFragmentViewModel : ViewModel() {
 
+    //done
+
     private val idaoi = ItemsDAORepository()
 
     fun addItem(satici_adi:String, urun_adi:String, urun_fiyat:String, urun_aciklama:String, urun_gorsel_url:String) {

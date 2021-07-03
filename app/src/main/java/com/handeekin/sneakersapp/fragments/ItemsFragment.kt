@@ -29,12 +29,13 @@ class ItemsFragment : Fragment() {
 
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_items, container, false)
         tasarim.itemsFragment = this
-        tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL)
+        tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
 
         viewModel.itemsList.observe(viewLifecycleOwner) {
             adapter = ItemsAdapter(requireContext(), it)
             tasarim.itemsAdapter = adapter
         }
+
 
 
         return tasarim.root
@@ -46,6 +47,8 @@ class ItemsFragment : Fragment() {
     fun fabTikla(v:View){
         Navigation.findNavController(v).navigate(R.id.ItemAddGecis)
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

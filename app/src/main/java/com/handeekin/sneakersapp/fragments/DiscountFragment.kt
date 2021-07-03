@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.adapterr.DiscountAdapter
 import com.handeekin.sneakersapp.adapterr.ItemsAdapter
@@ -28,9 +30,25 @@ class DiscountFragment : Fragment() {
     ): View? {
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_discount, container, false)
         tasarim.discountFragment = this
+        tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(2,
+            StaggeredGridLayoutManager.VERTICAL)
+
+        viewModel.salesitemsList.observe(viewLifecycleOwner) {
+            adapter = DiscountAdapter(requireContext(),it)
+            tasarim.discountAdapter = adapter
+        }
 
 
         return tasarim.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+        //Fragment içinde viewModel tanımlaması
+        val tempViewModel: DiscountFragmentViewModel by viewModels()
+        this.viewModel = tempViewModel
     }
 
 

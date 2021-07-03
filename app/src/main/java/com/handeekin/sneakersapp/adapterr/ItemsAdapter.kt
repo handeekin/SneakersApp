@@ -55,15 +55,18 @@ class ItemsAdapter(var mContext: Context,
             Snackbar.make(it,"${item.itemName} sepete eklendi.",Snackbar.LENGTH_SHORT).show()
         }
 
+        t.detailsButton.setOnClickListener {
+            val gecis = ItemsFragmentDirections.itemDetailGecis(item)
+            Navigation.findNavController(it).navigate(gecis)
+        }
+
 
         t.cardView.setOnClickListener {
-
-
             //karta tıklama kodu
             val gecis = ItemsFragmentDirections.itemDetailGecis(item)
-
-
             Navigation.findNavController(it).navigate(gecis)
+
+
         }
 
 

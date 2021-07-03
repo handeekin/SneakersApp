@@ -1,20 +1,19 @@
 package com.handeekin.sneakersapp.viewmodels
 
-import android.util.Log
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.entityy.ItemsClass
-import com.handeekin.sneakersapp.entityy.ItemsResponse
 import com.handeekin.sneakersapp.repos.ItemsDAORepository
 
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+class ItemDetailsFragmentViewModel : ViewModel() {
 
-
-class ItemsFragmentViewModel : ViewModel() {
-
-    //done
+    //done ish
 
     var itemsList = MutableLiveData<List<ItemsClass>>()
 
@@ -22,14 +21,7 @@ class ItemsFragmentViewModel : ViewModel() {
 
 
     init {
-        showMyItems()
         itemsList = idaor.getItems()
-    }
-
-
-
-    fun showMyItems(){
-        idaor.allProducts()
     }
 
 

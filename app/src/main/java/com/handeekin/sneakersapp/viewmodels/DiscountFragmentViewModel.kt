@@ -14,14 +14,18 @@ import com.handeekin.sneakersapp.repos.ItemsDAORepository
 
 class DiscountFragmentViewModel : ViewModel() {
 
-    var itemsList = MutableLiveData<List<ItemsClass>>()
-
+    var salesitemsList = MutableLiveData<List<ItemsClass>>()
     val idaor = ItemsDAORepository()
+    var success = MutableLiveData<Int>()
+
+
 
 
     init {
-        itemSales()
-        itemsList = idaor.getItems()
+        getSalesItems()
+        success = idaor.discountSuccess()
+
+
     }
 
 
@@ -30,6 +34,10 @@ class DiscountFragmentViewModel : ViewModel() {
         idaor.salesItemChange(661,1)
         idaor.salesItemChange(662,1)
         idaor.salesItemChange(667,1)
+    }
+
+    fun getSalesItems(){
+        idaor.getDiscountItems()
     }
 
 

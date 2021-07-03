@@ -1,5 +1,6 @@
 package com.handeekin.sneakersapp.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -62,6 +63,13 @@ class OpeningFragment : Fragment() {
 
     fun buttonLoginClicked(mail_adres:String,sifre:String){
         viewModel.login(mail_adres,sifre)
+      /*  viewModel.success.observe(viewLifecycleOwner,{
+            println(it)
+            if (it ==1)
+                val intent = Intent(getActivity(),MainActivity::class.java)
+            getActivity()?.startActivity(intent)
+            viewModel.user.observe(viewLifecycleOwner, {})
+        })*/
     }
 
 

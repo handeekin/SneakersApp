@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.adapterr.ItemsAdapter
 import com.handeekin.sneakersapp.viewmodels.ItemsFragmentViewModel
 import com.handeekin.sneakersapp.databinding.FragmentItemsBinding
+import com.handeekin.sneakersapp.viewmodels.CartFragmentViewModel
+import com.handeekin.sneakersapp.viewmodels.DiscountFragmentViewModel
 
 
 class CartFragment : Fragment() {
@@ -30,4 +33,13 @@ class CartFragment : Fragment() {
 
 
     }
+/*
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+        //Fragment içinde viewModel tanımlaması
+        val tempViewModel: CartFragmentViewModel by viewModels()
+        this.viewModel = tempViewModel
+    }*/
 }

@@ -13,7 +13,7 @@ import com.handeekin.sneakersapp.fragments.ItemsFragmentDirections
 import com.squareup.picasso.Picasso
 
 class DiscountAdapter(var mContext: Context,
-                      var itemsList: List<ItemsClass> )
+                      var salesItemsList: List<ItemsClass> )
     : RecyclerView.Adapter<DiscountAdapter.CardDesignHolder>() {
 
 
@@ -28,7 +28,7 @@ class DiscountAdapter(var mContext: Context,
     }
 
     override fun getItemCount(): Int {
-        return itemsList.size
+        return salesItemsList.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiscountAdapter.CardDesignHolder {
@@ -40,10 +40,10 @@ class DiscountAdapter(var mContext: Context,
 
     //görsel nesneleri burda yönetcez tıklama falan
     override fun onBindViewHolder(holder: DiscountAdapter.CardDesignHolder, position: Int) {
-        val item = itemsList.get(position)
+        val item = salesItemsList.get(position)
         val t = holder.cardDesignBinding
         t.itemObject = item
-        val product = itemsList.get(position)
+        val product = salesItemsList.get(position)
         val url = product.itemPictureUrl
 
         Picasso.get().load(url).into(holder.cardDesignBinding.imageView)
@@ -56,7 +56,6 @@ class DiscountAdapter(var mContext: Context,
 
 
         t.cardView.setOnClickListener {
-
 
             //karta tıklama kodu
             val gecis = DiscountFragmentDirections.discountDetayGecis(item)
