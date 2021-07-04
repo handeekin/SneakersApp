@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.databinding.FragmentUserInfoBinding
@@ -45,6 +46,17 @@ class UserInfoFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.toolbar_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_cart -> {
+                Navigation.findNavController(requireView()).navigate(R.id.infotocartgecis)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+
     }
 
     /*private fun loadData(){

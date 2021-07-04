@@ -11,27 +11,17 @@ class CartFragmentViewModel : ViewModel() {
     var success = MutableLiveData<Int>()
     val idaor = ItemsDAORepository()
 
-
     init {
         itemsAddedCart()
-        getSalesItems()
-        success = idaor.discountSuccess()
+        cartItemsList = idaor.getCartItems()
+    }
+    fun itemsAddedCart() {
+        idaor.CartAddedItems()
         cartItemsList = idaor.getCartItems()
     }
 
-    fun itemsAddedCart() {
-        idaor.CartAddedItems()
-    }
-
-    /*fun itemsDeletedCart(){
-        idaor.CartDeletedItems()
-    }*/
-
     fun itemsDeletedCart(id:Int,sepet_durum:Int){
         idaor.changeCartSit(id,sepet_durum)
-    }
-    fun getSalesItems(){
-        idaor.getSalesItem()
     }
 
 

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/discountDetayGecis"
             app:destination="@id/itemDetailFragment" />
+        <action
+            android:id="@+id/discounttocartgecis"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/userInfoFragment2"
@@ -22,6 +25,9 @@
         <argument
             android:name="nesne"
             app:argType="com.handeekin.sneakersapp.entityy.UsersClass" />
+        <action
+            android:id="@+id/infotocartgecis"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
@@ -43,6 +49,9 @@
         <action
             android:id="@+id/itemDetailGecis"
             app:destination="@id/itemDetailFragment" />
+        <action
+            android:id="@+id/itemtocartGecis"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/openingFragment"
@@ -78,6 +87,9 @@
         <argument
             android:name="nesne"
             app:argType="com.handeekin.sneakersapp.entityy.ItemsClass" />
+        <action
+            android:id="@+id/detailtocartgecis"
+            app:destination="@id/cartFragment" />
     </fragment>
     <activity
         android:id="@+id/enteringActivity"
@@ -89,4 +101,9 @@
         android:name="com.handeekin.sneakersapp.SignUpActivity"
         android:label="SignUpActivity"
         tools:layout="@layout/activity_sign_up"/>
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="com.handeekin.sneakersapp.SplashScreen"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" />
 </navigation>

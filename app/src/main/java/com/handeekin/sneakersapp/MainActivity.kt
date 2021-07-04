@@ -6,10 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.WindowManager
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavAction
@@ -17,6 +14,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.handeekin.sneakersapp.databinding.ActivityMainBinding
 import com.handeekin.sneakersapp.entityy.CRUDResponse
 import com.handeekin.sneakersapp.fragments.OpeningFragment
 import com.handeekin.sneakersapp.repos.ItemsDAORepository
@@ -42,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         sharedPreferences = getSharedPreferences("Shared_pref",Context.MODE_PRIVATE)
 
 
@@ -56,7 +55,25 @@ class MainActivity : AppCompatActivity() {
             saveData()
         }
 
+*//*
+        signUpButton.setOnClickListener {
+            val name : String = editTextNameSurnamef.text.toString()
+            val phone : String = editTextPhoneNumberf.text.toString()
+            val mail : String = editTextEmailSignf.text.toString()
+
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putString("NAME",name)
+            editor.putString("PHONE",phone)
+            editor.putString("MAIL",mail)
+            editor.apply()
+
+            Toast.makeText(this,"Succesfully signed up!",Toast.LENGTH_SHORT).show()
+
+        }
 */
+
+
+
 
         val bottomNav : BottomNavigationView = findViewById(R.id.bottomNavView)
 
@@ -64,6 +81,25 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(bottomNav,navHostFragment.navController )
 
+        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when(destination.id){
+                R.id.openingFragment -> hideBottomNav()
+                R.id.signUpFragment -> hideBottomNav()
+                else -> showBottomNav()
+            }
+        }
+
+
+
+    }
+
+    fun showBottomNav() {
+        bottomNavView.visibility = View.VISIBLE
+
+    }
+
+    fun hideBottomNav() {
+        bottomNavView.visibility = View.GONE
 
     }
 

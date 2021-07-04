@@ -9,6 +9,8 @@
         type="com.handeekin.sneakersapp.fragments.SignUpFragment" />
 </data>
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:hint="Name Surname"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:hint="Password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="128dp"
             android:ems="10"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:hint="E-Mail"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:ems="10"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:hint="Phone Number"
             android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,23 +76,24 @@
             android:id="@+id/signUpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="168dp"
+            android:layout_marginBottom="192dp"
             android:onClick="@{() -> signUpFragment.signUpButtonClicked(editTextEmailSignf.getText().toString(),editTextPassword.getText().toString(),editTextNameSurnamef.getText().toString(),editTextPhoneNumberf.getText().toString())}"
             android:text="Sign Up"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/backtoLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="548dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:text="Back to login"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

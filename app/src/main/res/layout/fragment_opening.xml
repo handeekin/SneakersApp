@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:ems="10"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:hint="Password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:ems="10"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:hint="E-Mail"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:onClick="@{() -> OpeningFragment.buttonLoginClicked(editTextEmail.getText().toString(),editTextPassword.getText().toString())}"
             android:text="Log In"
             app:layout_constraintEnd_toEndOf="parent"
@@ -84,15 +87,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
-        <Button
+        <TextView
             android:id="@+id/openingSignupButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="228dp"
+            android:layout_marginBottom="272dp"
+            android:background="#00FFFFFF"
+            android:clickable="true"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:text="Sign Up"
+            android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.764"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -100,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:text="Ready to buy some kicks?"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,15 +119,14 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="272dp"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:text="You don't have an account yet?"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/openingSignupButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/openingLoginButton"
-            app:layout_constraintVertical_bias="0.176" />
+            app:layout_constraintHorizontal_bias="0.164"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

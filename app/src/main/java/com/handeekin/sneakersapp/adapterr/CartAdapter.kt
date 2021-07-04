@@ -51,7 +51,8 @@ class CartAdapter(var mContext: Context,
 
         t.deleteButton.setOnClickListener {
             viewModel.itemsDeletedCart(item.id,sepet_durum = 0)
-            Snackbar.make(it,"${item.itemName} is deleted from your cart. Please refresh cart page.", Snackbar.LENGTH_LONG).show()
+            viewModel.itemsAddedCart()
+            Snackbar.make(it,"${item.itemName} is deleted from your cart.", Snackbar.LENGTH_LONG).show()
             //sayfayı yeniletmek istiyorum
         }
         t.cardView.setOnClickListener {

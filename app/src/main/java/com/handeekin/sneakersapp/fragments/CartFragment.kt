@@ -27,6 +27,7 @@ class CartFragment : Fragment() {
     private lateinit var viewModel: CartFragmentViewModel
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,6 +47,10 @@ class CartFragment : Fragment() {
         tasarim.purchaseButton.setOnClickListener {
             Snackbar.make(it, "Proceeding to purchase.", Snackbar.LENGTH_LONG).show()
         }
+
+
+
+
         return tasarim.root
 
     }

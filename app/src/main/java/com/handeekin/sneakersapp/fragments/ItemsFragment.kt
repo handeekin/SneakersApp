@@ -54,4 +54,15 @@ class ItemsFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_cart -> {
+                Navigation.findNavController(requireView()).navigate(R.id.itemtocartGecis)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+
+    }
+
 }
