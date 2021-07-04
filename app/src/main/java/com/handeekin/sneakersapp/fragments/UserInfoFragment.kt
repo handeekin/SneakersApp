@@ -30,11 +30,11 @@ class UserInfoFragment : Fragment() {
 
         preferences = requireActivity().getSharedPreferences("Shared_pref",Context.MODE_PRIVATE)
 
-        val name = preferences.getString("NAME","")
+        val name = preferences.getString("NAME","Hande Ekin Sahin")
         tasarim.textinfoNameSurname.text = name
-        val phone = preferences.getString("PHONE","")
+        val phone = preferences.getString("PHONE","1234567890")
         tasarim.textinfoPhoneNumber.text = phone
-        val mail = preferences.getString("MAIL","")
+        val mail = preferences.getString("MAIL","handeekinsahin@gmail.com")
         tasarim.textinfoMail.text = mail
 
 

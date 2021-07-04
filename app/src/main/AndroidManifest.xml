@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/yamamoto_launcher"
         android:label="Laces."
@@ -13,14 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SneakersApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EnteringActivity"></activity>
+        <activity
+            android:name=".SignUpActivity"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/Theme.SneakersApp.NoActionBar"></activity>
+        <activity android:name=".EnteringActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <meta-data

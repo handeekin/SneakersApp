@@ -28,23 +28,12 @@ class EnteringActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entering)
 
-
-        signUpButton.setOnClickListener {
-            val name : String = editTextNameSurname.text.toString()
-            val phone : String = editTextPhoneNumber.text.toString()
-            val mail : String = editTextEmailSign.text.toString()
-
-            val editor: SharedPreferences.Editor = sharedPreferences.edit()
-            editor.putString("NAME",name)
-            editor.putString("PHONE",phone)
-            editor.putString("MAIL",mail)
-            editor.apply()
-
-            Toast.makeText(this,"Succesfully signed up!",Toast.LENGTH_SHORT).show()
-
-            val intent = Intent(this,MainActivity::class.java)
+        openingSignupButton.setOnClickListener {
+            val intent = Intent(this,SignUpActivity::class.java)
             startActivity(intent)
         }
+
+
 
         openingLoginButton.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)

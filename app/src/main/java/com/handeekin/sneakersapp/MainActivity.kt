@@ -58,11 +58,6 @@ class MainActivity : AppCompatActivity() {
 
 */
 
-
-
-
-
-
         val bottomNav : BottomNavigationView = findViewById(R.id.bottomNavView)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment

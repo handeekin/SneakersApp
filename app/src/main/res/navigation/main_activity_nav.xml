@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/enteringActivity">
+    app:startDestination="@id/openingFragment">
 
     <fragment
         android:id="@+id/discountFragment"
@@ -84,4 +84,9 @@
         android:name="com.handeekin.sneakersapp.EnteringActivity"
         android:label="EnteringActivity"
         tools:layout="@layout/activity_entering"/>
+    <activity
+        android:id="@+id/signUpActivity"
+        android:name="com.handeekin.sneakersapp.SignUpActivity"
+        android:label="SignUpActivity"
+        tools:layout="@layout/activity_sign_up"/>
 </navigation>
