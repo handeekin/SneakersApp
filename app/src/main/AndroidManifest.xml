@@ -12,13 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SneakersApp"
         android:usesCleartextTraffic="true" >
-        <activity android:name=".SplashScreen" >
-        </activity>
-        <activity
-            android:name=".SignUpActivity"
-            android:label="@string/title_activity_sign_up"
-            android:theme="@style/Theme.SneakersApp.NoActionBar" />
-        <activity android:name=".EnteringActivity" />
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
