@@ -65,7 +65,7 @@
         app:menu="@menu/bottom_nav" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/toolbarCartIcon"
         android:layout_width="30dp"
         android:layout_height="32dp"
         android:layout_marginTop="8dp"

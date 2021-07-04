@@ -40,6 +40,8 @@ class DiscountFragment : Fragment() {
             tasarim.discountAdapter = adapter
         }
 
+
+
         return tasarim.root
     }
 

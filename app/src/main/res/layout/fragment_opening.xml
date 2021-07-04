@@ -91,17 +91,17 @@
             android:id="@+id/openingSignupButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="272dp"
+            android:layout_marginTop="110dp"
             android:background="#00FFFFFF"
             android:clickable="true"
             android:fontFamily="@font/mukta_vaani_bold"
             android:text="Sign Up"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.764"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
         <TextView
             android:id="@+id/textView2"
@@ -119,14 +119,14 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="272dp"
+            android:layout_marginTop="110dp"
             android:fontFamily="@font/mukta_vaani_bold"
             android:text="You don't have an account yet?"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.164"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
