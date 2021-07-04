@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_activity_nav"
-    app:startDestination="@id/openingFragment">
+    app:startDestination="@id/enteringActivity">
 
     <fragment
         android:id="@+id/discountFragment"
@@ -18,7 +18,11 @@
         android:id="@+id/userInfoFragment2"
         android:name="com.handeekin.sneakersapp.fragments.UserInfoFragment"
         android:label="fragment_user_info"
-        tools:layout="@layout/fragment_user_info" />
+        tools:layout="@layout/fragment_user_info" >
+        <argument
+            android:name="nesne"
+            app:argType="com.handeekin.sneakersapp.entityy.UsersClass" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.handeekin.sneakersapp.fragments.CartFragment"
@@ -56,7 +60,11 @@
         android:id="@+id/signUpFragment"
         android:name="com.handeekin.sneakersapp.fragments.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/signuptologingecis"
+            app:destination="@id/openingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemAddingFragment"
         android:name="com.handeekin.sneakersapp.fragments.ItemAddingFragment"

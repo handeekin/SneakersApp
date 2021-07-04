@@ -1,16 +1,22 @@
 package com.handeekin.sneakersapp.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.databinding.FragmentUserInfoBinding
+import com.squareup.picasso.Picasso
 
 
 class UserInfoFragment : Fragment() {
 
     private lateinit var tasarim:FragmentUserInfoBinding
+    lateinit var preferences: SharedPreferences
+
 
 
     override fun onCreateView(
@@ -21,6 +27,16 @@ class UserInfoFragment : Fragment() {
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_user_info, container, false)
 
         //loadData()
+
+        preferences = requireActivity().getSharedPreferences("Shared_pref",Context.MODE_PRIVATE)
+
+        val name = preferences.getString("NAME","")
+        tasarim.textinfoNameSurname.text = name
+        val phone = preferences.getString("PHONE","")
+        tasarim.textinfoPhoneNumber.text = phone
+        val mail = preferences.getString("MAIL","")
+        tasarim.textinfoMail.text = mail
+
 
 
         return tasarim.root

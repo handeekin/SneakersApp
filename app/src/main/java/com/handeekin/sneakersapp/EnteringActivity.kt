@@ -1,6 +1,7 @@
 package com.handeekin.sneakersapp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,57 +21,36 @@ import kotlinx.android.synthetic.main.activity_entering.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 class EnteringActivity : AppCompatActivity() {
+
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entering)
 
-        var udaoi: UsersDAOInterface
-        var tasarim: FragmentOpeningBinding
-        lateinit var viewModel: OpeningFragmentViewModel
 
-        udaoi = APIUtils.getUsersDaoInterface()
+        signUpButton.setOnClickListener {
+            val name : String = editTextNameSurname.text.toString()
+            val phone : String = editTextPhoneNumber.text.toString()
+            val mail : String = editTextEmailSign.text.toString()
 
-        val udaor = UserDAORepository()
-        var success = MutableLiveData<Int>()
-        var user = MutableLiveData<List<UsersClass>>()
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putString("NAME",name)
+            editor.putString("PHONE",phone)
+            editor.putString("MAIL",mail)
+            editor.apply()
 
-        openingSignupButton.setOnClickListener {
+            Toast.makeText(this,"Succesfully signed up!",Toast.LENGTH_SHORT).show()
+
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-        }
-
-        viewModel.user.observe(this){
-            if (it[0].user_val == 1){
-                val sharedPreferences = getSharedPreferences("com.handeekin.sneakersapp",
-                    MODE_PRIVATE)
-                val editor =sharedPreferences.edit()
-                editor.apply{
-                    putInt("INT_USER_ID",it[0].user_val)
-                    putString("STRING_NAME",it[0].nameSurname)
-                    putString("STRING_MAIL",it[0].mailAdress)
-                    putString("STRING_PHONE",it[0].telephone)
-                }.apply()
-                val intent = Intent(this,MainActivity::class.java)
-                startActivity(intent)
-
-            }
-            else{
-                Toast.makeText(this,"Wrong e-mail or password.",Toast.LENGTH_SHORT).show()
-            }
-
         }
 
         openingLoginButton.setOnClickListener {
-
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-
         }
 
-        fun buttonLoginClicked(mail_adres:String,sifre:String){
-            viewModel.login(mail_adres,sifre)
-
-        }
     }
 
     }

@@ -5,9 +5,12 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.databinding.FragmentSignUpBinding
 import com.handeekin.sneakersapp.viewmodels.SignUpFragmentViewModel
+import com.squareup.picasso.Picasso
 
 
 class SignUpFragment : Fragment() {
@@ -24,7 +27,20 @@ class SignUpFragment : Fragment() {
         tasarim = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
         tasarim.signUpFragment = this
 
+
+
+
+       tasarim.backtoLogin.setOnClickListener {
+            val gecis = SignUpFragmentDirections.signuptologingecis()
+            Navigation.findNavController(it).navigate(gecis)
+        }
+        tasarim.signUpButton.setOnClickListener {
+            val gecis = SignUpFragmentDirections.signuptologingecis()
+            Navigation.findNavController(it).navigate(gecis)
+        }
+
         return tasarim.root
+
 
 
 
