@@ -37,7 +37,7 @@ class ItemDetailFragment : Fragment() {
 
 
         tasarim.addToCartButton.setOnClickListener {
-            Snackbar.make(it,"${recievedItem.itemName} sepete eklendi.", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it,"${recievedItem.itemName} is added to cart.", Snackbar.LENGTH_SHORT).show()
         }
 
         return tasarim.root
