@@ -1,10 +1,8 @@
 package com.handeekin.sneakersapp.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.handeekin.sneakersapp.R
@@ -37,6 +35,11 @@ class SignUpFragment : Fragment() {
 
         val tempViewModel : SignUpFragmentViewModel by viewModels()
        this.viewModel = tempViewModel
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.toolbar_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 

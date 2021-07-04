@@ -23,7 +23,11 @@
         android:id="@+id/cartFragment"
         android:name="com.handeekin.sneakersapp.fragments.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/cartToDetailgecis"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemsFragment"
         android:name="com.handeekin.sneakersapp.fragments.ItemsFragment"
@@ -67,4 +71,9 @@
             android:name="nesne"
             app:argType="com.handeekin.sneakersapp.entityy.ItemsClass" />
     </fragment>
+    <activity
+        android:id="@+id/enteringActivity"
+        android:name="com.handeekin.sneakersapp.EnteringActivity"
+        android:label="EnteringActivity"
+        tools:layout="@layout/activity_entering"/>
 </navigation>

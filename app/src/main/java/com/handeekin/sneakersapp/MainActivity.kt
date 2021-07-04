@@ -1,5 +1,6 @@
 package com.handeekin.sneakersapp
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +21,9 @@ import com.handeekin.sneakersapp.retrofits.APIUtils
 import com.handeekin.sneakersapp.retrofits.ItemsDAOInterface
 import com.handeekin.sneakersapp.retrofits.UsersDAOInterface
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_opening.*
+import kotlinx.android.synthetic.main.fragment_sign_up.*
+import kotlinx.android.synthetic.main.fragment_user_info.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,10 +43,13 @@ class MainActivity : AppCompatActivity() {
 
         val idaor = ItemsDAORepository()
 
-        /*salesItemChange(706,1)
-        salesItemChange(700,1)
-        salesItemChange(697,1)
+        /*loadData()
+
+        openingSignupButton.setOnClickListener {
+            saveData()
+        }
 */
+
 
 
 
@@ -54,30 +61,24 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottomNav,navHostFragment.navController )
 
 
-       /* val toolbarIcon : MenuItem = findViewById(R.id.action_cart)
-
-        NavigationUI.setupWithNavController(toolbarIcon,navHostFragment.navController)*/
-
-       /* override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-            inflater.inflate(R.menu.toolbar_menu,menu)
-
-            val item = menu.findItem(R.id.action_cart)
-            val navAct = item.actionView as NavAction
-            navAct.setOnQueryTextListener(this)
-
-            super.onCreateOptionsMenu(menu, inflater)
-        }*/
-
     }
 
-    fun salesItemChange(id: Int,urun_indirimli_mi :Int) {
-        idaoi.change_sales_item(id,urun_indirimli_mi).enqueue(object :
-            Callback<CRUDResponse?> {
-            override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {
-                Log.e("response",response.body()!!.success.toString())
-                Log.e("mesaj", response.body()!!.message)
-            }
-            override fun onFailure(call: Call<CRUDResponse?>, t: Throwable) {}
-        })
+   /* private fun saveData(){
+        val insertedTextName = editTextNameSurname.text.toString()
+        val insertedTextMail = editTextNameSurname.text.toString()
+        val insertedTextPhone = editTextNameSurname.text.toString()
+        textinfoNameSurname = insertedTextName
+        textinfoMail = insertedTextMail
+        textinfoPhoneNumber = insertedTextPhone
+
+        val sharedPreferences = getSharedPreferences("sharedPrefs",Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply{
+            putString("STRING_NAME", insertedTextName)
+            putString("STRING_MAIL", insertedTextMail)
+            putString("STRING_PHONE", insertedTextPhone)
+        }.apply()
     }
+
+*/
 }

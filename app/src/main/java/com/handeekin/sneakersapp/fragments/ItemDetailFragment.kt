@@ -1,10 +1,8 @@
 package com.handeekin.sneakersapp.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -28,19 +26,24 @@ class ItemDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_item_detail, container, false)
-
         val b:ItemDetailFragmentArgs by navArgs()
         val recievedItem = b.nesne
-
-
         tasarim.detailObject = recievedItem
         tasarim.detailFragment = this
+
+        val image = tasarim.imageView2
+        Picasso.get().load(recievedItem.itemPictureUrl).into(image)
+
 
         tasarim.addToCartButton.setOnClickListener {
             Snackbar.make(it,"${recievedItem.itemName} sepete eklendi.", Snackbar.LENGTH_SHORT).show()
         }
 
         return tasarim.root
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.toolbar_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 

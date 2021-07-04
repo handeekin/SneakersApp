@@ -8,14 +8,13 @@
 
         android:allowBackup="true"
         android:icon="@mipmap/yamamoto_launcher"
-        android:label="@string/app_name"
+        android:label="Laces."
         android:roundIcon="@mipmap/yamamoto_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SneakersApp"
         android:usesCleartextTraffic="true">
         <activity android:name=".EnteringActivity"></activity>
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

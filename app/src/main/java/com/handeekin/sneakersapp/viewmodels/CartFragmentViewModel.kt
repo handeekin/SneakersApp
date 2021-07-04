@@ -7,20 +7,33 @@ import com.handeekin.sneakersapp.repos.ItemsDAORepository
 
 class CartFragmentViewModel : ViewModel() {
 
-    var itemsList = MutableLiveData<List<ItemsClass>>()
-
+    var cartItemsList = MutableLiveData<List<ItemsClass>>()
+    var success = MutableLiveData<Int>()
     val idaor = ItemsDAORepository()
 
 
     init {
-        itemSales()
-        itemsList = idaor.getItems()
+        itemsAddedCart()
+        getSalesItems()
+        success = idaor.discountSuccess()
+        cartItemsList = idaor.getCartItems()
     }
 
-
-    fun itemSales() {
-
+    fun itemsAddedCart() {
+        idaor.CartAddedItems()
     }
+
+    /*fun itemsDeletedCart(){
+        idaor.CartDeletedItems()
+    }*/
+
+    fun itemsDeletedCart(id:Int,sepet_durum:Int){
+        idaor.changeCartSit(id,sepet_durum)
+    }
+    fun getSalesItems(){
+        idaor.getSalesItem()
+    }
+
 
 }
 

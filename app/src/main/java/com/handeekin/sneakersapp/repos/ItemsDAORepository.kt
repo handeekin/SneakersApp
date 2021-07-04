@@ -20,10 +20,6 @@ class ItemsDAORepository {
     private var cartValidate: MutableLiveData<Int>
     private var discountValidate: MutableLiveData<Int>
 
-
-
-
-
     init {
         itemsdaoInterface = APIUtils.getItemsDaoInterface()
         itemsList = MutableLiveData()
@@ -31,7 +27,6 @@ class ItemsDAORepository {
         cartItemsList = MutableLiveData()
         cartValidate = MutableLiveData()
         discountValidate = MutableLiveData()
-
     }
 
     fun getItems(): MutableLiveData<List<ItemsClass>> {
@@ -51,7 +46,7 @@ class ItemsDAORepository {
             override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {
             }
             override fun onFailure(call: Call<CRUDResponse?>, t: Throwable) {
-                Log.e("hata",t.localizedMessage.toString())
+                Log.e("error",t.localizedMessage.toString())
             }
         })
     }
@@ -61,9 +56,7 @@ class ItemsDAORepository {
             override fun onResponse(call: Call<ItemsResponse?>, response: Response<ItemsResponse>) {
                 val urunlerListe = response.body()!!.items
                 itemsList.value = urunlerListe
-
                 for (k in urunlerListe) {
-
                     Log.e("*******", "*******")
                     Log.e("mesaj", "geldi")
                     Log.e("ürün id", (k.id).toString())
@@ -94,15 +87,12 @@ class ItemsDAORepository {
         return discountValidate
     }
 
-
     fun CartAddedItems(){
         itemsdaoInterface.myItems("handeekin").enqueue(object : Callback<ItemsResponse> {
             override fun onResponse(call: Call<ItemsResponse?>, response: Response<ItemsResponse>) {
                 val urunlerListe = response.body()!!.items
                 var arrayList = arrayListOf<ItemsClass>()
-
                 for (i in urunlerListe) {
-
                     Log.e("*******", "*******")
                     Log.e("mesaj", "geldi")
                     Log.e("ürün id", (i.id).toString())
@@ -113,23 +103,39 @@ class ItemsDAORepository {
                         arrayList.add(i)
                     }
                     cartItemsList.value = arrayList
-
                 }
-
-
             }
-            override fun onFailure(call: Call<ItemsResponse?>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
+            override fun onFailure(call: Call<ItemsResponse?>, t: Throwable) {}
         })
 
+    }
+
+    fun CartDeletedItems(){
+        itemsdaoInterface.myItems("handeekin").enqueue(object : Callback<ItemsResponse>{
+            override fun onResponse(call: Call<ItemsResponse?>, response: Response<ItemsResponse>) {
+                val urunlerListe = response.body()!!.items
+                var arrayList = arrayListOf<ItemsClass>()
+                for (i in urunlerListe) {
+                    Log.e("*******", "*******")
+                    Log.e("mesaj", "geldi")
+                    Log.e("ürün id", (i.id).toString())
+                    Log.e("ürün ad", i.itemName)
+                    Log.e("indirimde mi", i.issale.toString())
+                    Log.e("sepette mi",i.cartSituation.toString())
+                    if (i.cartSituation ==1){
+                        arrayList.remove(i)
+                    }
+                    cartItemsList.value = arrayList
+                }
+            }
+            override fun onFailure(call: Call<ItemsResponse?>, t: Throwable) {}
+        })
     }
 
     fun changeCartSit(id:Int,sepet_durum:Int) {
         itemsdaoInterface.change_cart_situation(id,sepet_durum).enqueue(object : Callback<CRUDResponse?> {
             override fun onResponse(call: Call<CRUDResponse?>, response: Response<CRUDResponse?>) {
-                discountValidate.value = response.body()!!.success
-
+                cartValidate.value = response.body()!!.success
             }
             override fun onFailure(call: Call<CRUDResponse?>, t: Throwable) {}
         })
@@ -155,9 +161,7 @@ class ItemsDAORepository {
                 discountItemsList.value = arrayList
             }
             override fun onFailure(call: Call<ItemsResponse?>, t: Throwable) {
-
-                Log.e("basarız", t.localizedMessage.toString())
-
+                Log.e("error", t.localizedMessage.toString())
             }
         })
     }

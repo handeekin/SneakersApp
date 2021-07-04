@@ -2,17 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<data>
-    <variable
-        name="itemObject"
-        type="com.handeekin.sneakersapp.entityy.ItemsClass" />
-</data>
-
+    <data>
+        <variable
+            name="cartObject"
+            type="com.handeekin.sneakersapp.entityy.ItemsClass" />
+    </data>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="436dp"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
@@ -28,7 +27,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/imageViewCart"
                     android:layout_width="216dp"
                     android:layout_height="156dp"
                     android:layout_marginTop="8dp"
@@ -42,40 +41,26 @@
                     android:layout_width="286dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@{itemObject.itemName}"
+                    android:text="@{cartObject.itemName}"
                     android:textAlignment="center"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewCart" />
 
                 <TextView
-                    android:id="@+id/textViewTotalPrice"
+                    android:id="@+id/textViewTotalPriceCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="46dp"
-                    android:text='@{String.valueOf(itemObject.itemPrice) + "L"}'
+                    android:text='@{String.valueOf(cartObject.itemPrice) + "L"}'
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/detailsButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewName" />
-
-                <Button
-                    android:id="@+id/addToCartButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Add to cart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/detailsButton"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewTotalPrice"
-                    app:layout_constraintVertical_bias="1.0" />
 
                 <Button
                     android:id="@+id/detailsButton"
@@ -86,19 +71,41 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/addToCartButton" />
+                    app:layout_constraintStart_toEndOf="@+id/deleteButton" />
 
                 <TextView
                     android:id="@+id/discountText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginBottom="36dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
+                    app:layout_constraintBottom_toTopOf="@+id/deleteButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewTotalPriceCart" />
+
+                <Button
+                    android:id="@+id/deleteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Delete"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/detailsButton"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/discountTextCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/detailsButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

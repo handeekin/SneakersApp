@@ -39,6 +39,10 @@ class DiscountFragmentViewModel : ViewModel() {
         idaor.getSalesItem()
     }
 
+    fun addedToCart(id:Int,sepet_durum:Int){
+        idaor.changeCartSit(id,sepet_durum)
+    }
+
 
 
 }

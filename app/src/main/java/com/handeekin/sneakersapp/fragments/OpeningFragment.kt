@@ -1,12 +1,11 @@
 package com.handeekin.sneakersapp.fragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -40,8 +39,6 @@ class OpeningFragment : Fragment() {
 
         tasarim.openingLoginButton.setOnClickListener {
 
-
-
             Navigation.findNavController(it).navigate(R.id.itemsGecis)
         }
 
@@ -56,8 +53,6 @@ class OpeningFragment : Fragment() {
         }
 
 
-
-
         tasarim.openingSignupButton.setOnClickListener {
 
 
@@ -70,12 +65,16 @@ class OpeningFragment : Fragment() {
 
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Fragment içinde viewModel tanımlaması
         val tempViewModel: OpeningFragmentViewModel by viewModels()
         this.viewModel = tempViewModel
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.toolbar_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     fun buttonLoginClicked(mail_adres:String,sifre:String){

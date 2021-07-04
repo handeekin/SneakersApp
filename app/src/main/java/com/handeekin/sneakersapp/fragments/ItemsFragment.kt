@@ -1,10 +1,8 @@
 package com.handeekin.sneakersapp.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -13,34 +11,30 @@ import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.adapterr.ItemsAdapter
 import com.handeekin.sneakersapp.viewmodels.ItemsFragmentViewModel
 import com.handeekin.sneakersapp.databinding.FragmentItemsBinding
+import com.handeekin.sneakersapp.repos.ItemsDAORepository
 
 class ItemsFragment : Fragment() {
 
     private lateinit var tasarim:FragmentItemsBinding
     private lateinit var adapter: ItemsAdapter
     private lateinit var viewModel: ItemsFragmentViewModel
+    private lateinit var idaor:ItemsDAORepository
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_items, container, false)
         tasarim.itemsFragment = this
         tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
-
         viewModel.itemsList.observe(viewLifecycleOwner) {
-            adapter = ItemsAdapter(requireContext(), it)
+            adapter = ItemsAdapter(requireContext(), it,viewModel)
             tasarim.itemsAdapter = adapter
         }
 
-
-
         return tasarim.root
-
-
 
     }
 
@@ -48,22 +42,16 @@ class ItemsFragment : Fragment() {
         Navigation.findNavController(v).navigate(R.id.ItemAddGecis)
     }
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
-        //Fragment içinde viewModel tanımlaması
         val tempViewModel: ItemsFragmentViewModel by viewModels()
         this.viewModel = tempViewModel
     }
 
-/*    override fun onResume() {
-        super.onResume()
-        //Sayfaya geri geldiğinde verileri yükle
-        viewModel.showMyItems()
-    }*/
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.toolbar_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
 }

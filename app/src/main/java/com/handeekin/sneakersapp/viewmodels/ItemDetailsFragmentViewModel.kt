@@ -23,6 +23,9 @@ class ItemDetailsFragmentViewModel : ViewModel() {
     init {
         itemsList = idaor.getItems()
     }
+    fun addedToCart(id:Int,sepet_durum:Int){
+        idaor.changeCartSit(id,sepet_durum)
+    }
 
 
 

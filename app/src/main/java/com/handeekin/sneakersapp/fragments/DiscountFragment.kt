@@ -2,12 +2,11 @@ package com.handeekin.sneakersapp.fragments
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.handeekin.sneakersapp.R
 import com.handeekin.sneakersapp.adapterr.DiscountAdapter
@@ -31,15 +30,14 @@ class DiscountFragment : Fragment() {
     ): View? {
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_discount, container, false)
         tasarim.discountFragment = this
-        tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(2,
+        tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(1,
             StaggeredGridLayoutManager.VERTICAL)
 
         viewModel.salesitemsList.observe(viewLifecycleOwner) {
             Log.e("indirim fragment", it[0].itemName)
-            adapter = DiscountAdapter(requireContext(),it)
+            adapter = DiscountAdapter(requireContext(),it,viewModel)
             tasarim.discountAdapter = adapter
         }
-
 
         return tasarim.root
     }
@@ -47,10 +45,13 @@ class DiscountFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
-        //Fragment içinde viewModel tanımlaması
         val tempViewModel: DiscountFragmentViewModel by viewModels()
         this.viewModel = tempViewModel
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.toolbar_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
 

@@ -2,11 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<data>
-    <variable
-        name="itemObject"
-        type="com.handeekin.sneakersapp.entityy.ItemsClass" />
-</data>
+    <data>
+        <variable
+            name="itemDetailObject"
+            type="com.handeekin.sneakersapp.entityy.ItemsClass" />
+    </data>
 
 
 
@@ -42,7 +42,7 @@
                     android:layout_width="286dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@{itemObject.itemName}"
+                    android:text="@{itemDetailObject.itemName}"
                     android:textAlignment="center"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="46dp"
-                    android:text='@{String.valueOf(itemObject.itemPrice) + "L"}'
+                    android:text='@{String.valueOf(itemDetailObject.itemPrice) + "L"}'
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/detailsButton"
                     app:layout_constraintEnd_toEndOf="parent"

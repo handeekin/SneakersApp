@@ -11,10 +11,13 @@ import com.handeekin.sneakersapp.databinding.CardDesignBinding
 import com.handeekin.sneakersapp.entityy.ItemsClass
 import com.handeekin.sneakersapp.fragments.DiscountFragmentDirections
 import com.handeekin.sneakersapp.fragments.ItemsFragmentDirections
+import com.handeekin.sneakersapp.viewmodels.DiscountFragmentViewModel
+import com.handeekin.sneakersapp.viewmodels.ItemsFragmentViewModel
 import com.squareup.picasso.Picasso
 
 class DiscountAdapter(var mContext: Context,
-                      var salesItemsList: List<ItemsClass> )
+                      var salesItemsList: List<ItemsClass>,
+                      var viewModel : DiscountFragmentViewModel)
     : RecyclerView.Adapter<DiscountAdapter.CardDesignHolder>() {
 
 
@@ -48,7 +51,7 @@ class DiscountAdapter(var mContext: Context,
 
         Picasso.get().load(url).into(holder.cardDesignBinding.imageView)
 
-        var discount= listOf<String>("1,899.90 TL","1,899.90 TL","1,989.90 TL")
+        var discount= listOf<String>("1,199.90 TL","1,099.90 TL","789.90 TL")
         holder.cardDesignBinding.textViewTotalPrice.apply {
             paintFlags= paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         }
@@ -60,14 +63,17 @@ class DiscountAdapter(var mContext: Context,
 
 
         t.addToCartButton.setOnClickListener {
-            Snackbar.make(it,"${item.itemName} sepete eklendi.", Snackbar.LENGTH_SHORT).show()
+            viewModel.addedToCart(item.id,sepet_durum = 1)
+            Snackbar.make(it,"${item.itemName} is added to cart", Snackbar.LENGTH_SHORT).show()
         }
 
-
         t.cardView.setOnClickListener {
-
             val gecis = DiscountFragmentDirections.discountDetayGecis(item)
+            Navigation.findNavController(it).navigate(gecis)
+        }
 
+        t.detailsButton.setOnClickListener {
+            val gecis = DiscountFragmentDirections.discountDetayGecis(item)
             Navigation.findNavController(it).navigate(gecis)
         }
 

@@ -11,10 +11,12 @@ import com.google.android.material.snackbar.Snackbar
 import com.handeekin.sneakersapp.entityy.ItemsClass
 import com.handeekin.sneakersapp.databinding.CardDesignBinding
 import com.handeekin.sneakersapp.fragments.ItemsFragmentDirections
+import com.handeekin.sneakersapp.viewmodels.ItemsFragmentViewModel
 import com.squareup.picasso.Picasso
 
 class ItemsAdapter(var mContext: Context,
-                   var itemsList: List<ItemsClass> )
+                   var itemsList: List<ItemsClass>,
+                   var viewModel : ItemsFragmentViewModel)
     : RecyclerView.Adapter<ItemsAdapter.CardDesignHolder>() {
 
     inner class CardDesignHolder(cardTasarimBinding: CardDesignBinding)
@@ -48,7 +50,8 @@ class ItemsAdapter(var mContext: Context,
         Picasso.get().load(url).into(holder.cardDesignBinding.imageView)
 
         t.addToCartButton.setOnClickListener {
-            Snackbar.make(it,"${item.itemName} sepete eklendi.",Snackbar.LENGTH_SHORT).show()
+            viewModel.addedToCart(item.id,sepet_durum = 1)
+            Snackbar.make(it,"${item.itemName} is added to cart.",Snackbar.LENGTH_SHORT).show()
         }
 
         t.detailsButton.setOnClickListener {

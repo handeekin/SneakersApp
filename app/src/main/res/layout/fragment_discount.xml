@@ -10,6 +10,9 @@
     <variable
         name="discountAdapter"
         type="com.handeekin.sneakersapp.adapterr.DiscountAdapter" />
+    <variable
+        name="discountObject"
+        type="com.handeekin.sneakersapp.entityy.ItemsClass" />
 </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
