@@ -45,7 +45,7 @@
                     android:fontFamily="@font/mukta_vaani_bold"
                     android:text="@{itemObject.itemName}"
                     android:textAlignment="center"
-                    android:textSize="24sp"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
