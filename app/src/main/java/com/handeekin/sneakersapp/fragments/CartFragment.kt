@@ -21,12 +21,9 @@ import kotlinx.android.synthetic.main.cart_card_design.*
 
 
 class CartFragment : Fragment() {
-
     private lateinit var tasarim: FragmentCartBinding
     private lateinit var adapter: CartAdapter
     private lateinit var viewModel: CartFragmentViewModel
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,10 +44,6 @@ class CartFragment : Fragment() {
         tasarim.purchaseButton.setOnClickListener {
             Snackbar.make(it, "Proceeding to purchase.", Snackbar.LENGTH_LONG).show()
         }
-
-
-
-
         return tasarim.root
 
     }
@@ -69,6 +62,5 @@ class CartFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.itemsAddedCart()
-
     }
 }

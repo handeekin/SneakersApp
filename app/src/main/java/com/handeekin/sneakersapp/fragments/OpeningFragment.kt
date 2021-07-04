@@ -22,26 +22,17 @@ import com.squareup.picasso.Picasso
 
 
 class OpeningFragment : Fragment() {
-
     private lateinit var udaoi: UsersDAOInterface
     private lateinit var tasarim:FragmentOpeningBinding
     private lateinit var viewModel: OpeningFragmentViewModel
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-
         udaoi = APIUtils.getUsersDaoInterface()
         tasarim = DataBindingUtil.inflate(inflater, R.layout.fragment_opening, container, false)
         tasarim.openingFragment = this
-
-
-
-
         viewModel.user.observe(viewLifecycleOwner){
             if (it[0].user_val == 1){
                 Navigation.findNavController(requireView()).navigate(R.id.itemsGecis)
@@ -59,7 +50,6 @@ class OpeningFragment : Fragment() {
         return tasarim.root
 
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Fragment içinde viewModel tanımlaması
@@ -74,19 +64,6 @@ class OpeningFragment : Fragment() {
 
     fun buttonLoginClicked(mail_adres:String,sifre:String){
         viewModel.login(mail_adres,sifre)
-       /* viewModel.success.observe(viewLifecycleOwner,{
-            println(it)
-            if (it==1)
-            val sharedPreferences = context?.getSharedPreferences("sharedPreferences",Context.MODE_PRIVATE)
-            val editor = sharedPreferences?.edit()
-            editor?.apply {
-                putString("STRING_NAME", insertedTextName)
-                putString("STRING_MAIL", insertedTextMail)
-                putString("STRING_PHONE", insertedTextPhone)
-            }.apply()
-            }
-        })*/
-
         }
     }
 

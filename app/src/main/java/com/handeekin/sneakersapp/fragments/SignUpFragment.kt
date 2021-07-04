@@ -20,34 +20,20 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class SignUpFragment : Fragment() {
-
     private lateinit var tasarim:FragmentSignUpBinding
     private lateinit var viewModel: SignUpFragmentViewModel
     lateinit var sharedPreferences: SharedPreferences
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-
         tasarim = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
         tasarim.signUpFragment = this
-
         sharedPreferences = requireContext().getSharedPreferences("Shared_pref", Context.MODE_PRIVATE)
-
-
-
-       tasarim.backtoLogin.setOnClickListener {
-            val gecis = SignUpFragmentDirections.signuptologingecis()
-            Navigation.findNavController(it).navigate(gecis)
-        }
-
         tasarim.signUpButton.setOnClickListener {
             val name : String = tasarim.editTextNameSurnamef.text.toString()
             val phone : String =tasarim.editTextPhoneNumberf.text.toString()
             val mail : String = tasarim.editTextEmailSignf.text.toString()
-
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.putString("NAME",name)
             editor.putString("PHONE",phone)
@@ -60,14 +46,11 @@ class SignUpFragment : Fragment() {
             Navigation.findNavController(it).navigate(gecis)
         }
 
-
+        tasarim.backtoLogin.setOnClickListener {
+            val gecis = SignUpFragmentDirections.signuptologingecis()
+            Navigation.findNavController(it).navigate(gecis)
+        }
         return tasarim.root
-
-
-
-
-
-
     }
 
    override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +64,6 @@ class SignUpFragment : Fragment() {
         inflater.inflate(R.menu.toolbar_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
-
 
     fun signUpButtonClicked(mail_adres:String,sifre:String,ad_soyad:String,telefon:String){
         viewModel.signup(mail_adres, sifre, ad_soyad, telefon)

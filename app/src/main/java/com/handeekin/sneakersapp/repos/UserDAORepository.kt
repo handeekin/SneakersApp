@@ -15,12 +15,9 @@ class UserDAORepository {
     private val userList:MutableLiveData<List<UsersClass>> = MutableLiveData()
     private val userVal: MutableLiveData<Int> = MutableLiveData()
     private val udaoi: UsersDAOInterface = APIUtils.getUsersDaoInterface()
-
-
     fun getUserVal(): MutableLiveData<Int>{
         return userVal
     }
-
     fun userValidation(): MutableLiveData<List<UsersClass>>{
         return userList
     }
@@ -29,7 +26,6 @@ class UserDAORepository {
             override fun onFailure(call: Call<UsersResponse>, t: Throwable) {
                 Log.e("getUser",t?.localizedMessage.toString())
             }
-
             override fun onResponse(call: Call<UsersResponse>?, response: Response<UsersResponse>) {
                 Log.e("başarı", response.body()!!.users.toString())
                 val usersList_ = response.body()!!.users
@@ -39,8 +35,6 @@ class UserDAORepository {
                 println("liste size: " + userList.value!!.size)
                 println("kullanici adi: " + userList.value!![0].nameSurname)
                 println("kullanici deger: " + userVal.value!!)
-
-
             }
         })
     }

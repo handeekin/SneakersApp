@@ -17,9 +17,6 @@ class UserInfoFragment : Fragment() {
 
     private lateinit var tasarim:FragmentUserInfoBinding
     lateinit var preferences: SharedPreferences
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,8 +34,6 @@ class UserInfoFragment : Fragment() {
         tasarim.textinfoPhoneNumber.text = phone
         val mail = preferences.getString("MAIL","handeekinsahin@gmail.com")
         tasarim.textinfoMail.text = mail
-
-
 
         return tasarim.root
     }

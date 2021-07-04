@@ -77,6 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="192dp"
+            android:fontFamily="@font/mukta_vaani_bold"
             android:onClick="@{() -> signUpFragment.signUpButtonClicked(editTextEmailSignf.getText().toString(),editTextPassword.getText().toString(),editTextNameSurnamef.getText().toString(),editTextPhoneNumberf.getText().toString())}"
             android:text="Sign Up"
             app:layout_constraintBottom_toBottomOf="parent"

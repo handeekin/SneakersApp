@@ -18,12 +18,9 @@ import com.handeekin.sneakersapp.viewmodels.DiscountFragmentViewModel
 import com.handeekin.sneakersapp.viewmodels.ItemsFragmentViewModel
 
 class DiscountFragment : Fragment() {
-
     private lateinit var tasarim: FragmentDiscountBinding
     private lateinit var adapter: DiscountAdapter
     private lateinit var viewModel: DiscountFragmentViewModel
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,9 +36,6 @@ class DiscountFragment : Fragment() {
             adapter = DiscountAdapter(requireContext(),it,viewModel)
             tasarim.discountAdapter = adapter
         }
-
-
-
         return tasarim.root
     }
 

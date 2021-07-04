@@ -17,10 +17,9 @@ import com.handeekin.sneakersapp.repos.UserDAORepository
 class SignUpFragmentViewModel : ViewModel() {
 
     private val udaoi = UserDAORepository()
+    init {
 
-
-
-
+    }
 
     fun signup(mail_adres:String,sifre:String,ad_soyad:String,telefon:String) {
         Log.e("User signed up","$mail_adres - $sifre - $ad_soyad - $telefon")

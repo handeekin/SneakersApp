@@ -17,7 +17,6 @@ class ItemsFragmentViewModel : ViewModel() {
     //done
 
     var itemsList = MutableLiveData<List<ItemsClass>>()
-
     val idaor = ItemsDAORepository()
 
 

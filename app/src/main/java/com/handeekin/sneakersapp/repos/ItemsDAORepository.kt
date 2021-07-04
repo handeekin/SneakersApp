@@ -12,14 +12,12 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ItemsDAORepository {
-
     private val itemsList: MutableLiveData<List<ItemsClass>>
     private val discountItemsList: MutableLiveData<List<ItemsClass>>
     private val cartItemsList: MutableLiveData<List<ItemsClass>>
     private val itemsdaoInterface: ItemsDAOInterface
     private var cartValidate: MutableLiveData<Int>
     private var discountValidate: MutableLiveData<Int>
-
     init {
         itemsdaoInterface = APIUtils.getItemsDaoInterface()
         itemsList = MutableLiveData()
@@ -141,7 +139,6 @@ class ItemsDAORepository {
         })
     }
 
-
     fun getSalesItem() {
         itemsdaoInterface.myItems("handeekin").enqueue(object : Callback<ItemsResponse?> {
             override fun onResponse(call: Call<ItemsResponse?>, response: Response<ItemsResponse?>) {
@@ -165,8 +162,5 @@ class ItemsDAORepository {
             }
         })
     }
-
-
-
 
 }

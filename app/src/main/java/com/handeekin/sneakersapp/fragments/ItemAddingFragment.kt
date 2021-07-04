@@ -10,9 +10,6 @@ import com.handeekin.sneakersapp.viewmodels.ItemAddFragmentViewModel
 import com.handeekin.sneakersapp.databinding.FragmentItemAddingBinding
 
 class ItemAddingFragment : Fragment() {
-
-
-
     private lateinit var tasarim:FragmentItemAddingBinding
     private lateinit var viewModel: ItemAddFragmentViewModel
 
@@ -32,7 +29,6 @@ class ItemAddingFragment : Fragment() {
         //Fragment içinde viewModel tanımlaması
         val tempViewModel: ItemAddFragmentViewModel by viewModels()
         this.viewModel = tempViewModel
-
     }
 
     fun addItemClicked(satici_adi:String, urun_adi:String, urun_fiyat:String, urun_aciklama:String, urun_gorsel_url:String){

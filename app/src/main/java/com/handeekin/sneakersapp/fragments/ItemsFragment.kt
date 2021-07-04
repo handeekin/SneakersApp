@@ -14,18 +14,15 @@ import com.handeekin.sneakersapp.databinding.FragmentItemsBinding
 import com.handeekin.sneakersapp.repos.ItemsDAORepository
 
 class ItemsFragment : Fragment() {
-
     private lateinit var tasarim:FragmentItemsBinding
     private lateinit var adapter: ItemsAdapter
     private lateinit var viewModel: ItemsFragmentViewModel
     private lateinit var idaor:ItemsDAORepository
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         tasarim = DataBindingUtil.inflate(inflater,R.layout.fragment_items, container, false)
         tasarim.itemsFragment = this
         tasarim.RecyclerView.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
@@ -33,9 +30,7 @@ class ItemsFragment : Fragment() {
             adapter = ItemsAdapter(requireContext(), it,viewModel)
             tasarim.itemsAdapter = adapter
         }
-
         return tasarim.root
-
     }
 
     fun fabTikla(v:View){

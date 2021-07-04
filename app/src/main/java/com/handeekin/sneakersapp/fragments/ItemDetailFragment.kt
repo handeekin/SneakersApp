@@ -16,11 +16,9 @@ import com.handeekin.sneakersapp.viewmodels.ItemsFragmentViewModel
 import com.squareup.picasso.Picasso
 
 class ItemDetailFragment : Fragment() {
-
     private lateinit var tasarim : FragmentItemDetailBinding
     private lateinit var adapter: ItemsAdapter
     private lateinit var viewModel: ItemDetailsFragmentViewModel
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,15 +29,11 @@ class ItemDetailFragment : Fragment() {
         val recievedItem = b.nesne
         tasarim.detailObject = recievedItem
         tasarim.detailFragment = this
-
         val image = tasarim.imageView2
         Picasso.get().load(recievedItem.itemPictureUrl).into(image)
-
-
         tasarim.addToCartButton.setOnClickListener {
             Snackbar.make(it,"${recievedItem.itemName} is added to cart.", Snackbar.LENGTH_SHORT).show()
         }
-
         return tasarim.root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
