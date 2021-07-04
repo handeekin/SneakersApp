@@ -60,7 +60,6 @@ class ItemsAdapter(var mContext: Context,
         }
 
         t.cardView.setOnClickListener {
-            //karta tıklama kodu
             val gecis = ItemsFragmentDirections.itemDetailGecis(item)
             Navigation.findNavController(it).navigate(gecis)
 

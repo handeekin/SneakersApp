@@ -42,6 +42,7 @@
                     android:layout_width="286dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:fontFamily="@font/mukta_vaani_bold"
                     android:text="@{itemObject.itemName}"
                     android:textAlignment="center"
                     android:textSize="24sp"
@@ -56,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="46dp"
+                    android:fontFamily="@font/mukta_vaani_bold"
                     android:text='@{String.valueOf(itemObject.itemPrice) + "L"}'
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/detailsButton"
@@ -94,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="91dp"
                     android:layout_marginBottom="36dp"
+                    android:fontFamily="@font/mukta_vaani_bold"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toTopOf="@+id/addToCartButton"
                     app:layout_constraintEnd_toEndOf="parent"

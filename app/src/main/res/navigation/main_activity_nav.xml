@@ -91,19 +91,4 @@
             android:id="@+id/detailtocartgecis"
             app:destination="@id/cartFragment" />
     </fragment>
-    <activity
-        android:id="@+id/enteringActivity"
-        android:name="com.handeekin.sneakersapp.EnteringActivity"
-        android:label="EnteringActivity"
-        tools:layout="@layout/activity_entering"/>
-    <activity
-        android:id="@+id/signUpActivity"
-        android:name="com.handeekin.sneakersapp.SignUpActivity"
-        android:label="SignUpActivity"
-        tools:layout="@layout/activity_sign_up"/>
-    <activity
-        android:id="@+id/splashScreen"
-        android:name="com.handeekin.sneakersapp.SplashScreen"
-        android:label="activity_splash_screen"
-        tools:layout="@layout/activity_splash_screen" />
 </navigation>

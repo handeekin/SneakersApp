@@ -36,18 +36,29 @@ class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         sharedPreferences = getSharedPreferences("Shared_pref",Context.MODE_PRIVATE)
 
 
         udaoi = APIUtils.getUsersDaoInterface()
         idaoi = APIUtils.getItemsDaoInterface()
 
-        val idaor = ItemsDAORepository()
+        val bottomNav : BottomNavigationView = findViewById(R.id.bottomNavView)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+
+        NavigationUI.setupWithNavController(bottomNav,navHostFragment.navController )
+
+        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when(destination.id){
+                R.id.openingFragment -> hideBottomNav()
+                R.id.signUpFragment -> hideBottomNav()
+                else -> showBottomNav()
+            }
+        }
 
         /*loadData()
 
@@ -75,19 +86,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val bottomNav : BottomNavigationView = findViewById(R.id.bottomNavView)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
-
-        NavigationUI.setupWithNavController(bottomNav,navHostFragment.navController )
-
-        navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            when(destination.id){
-                R.id.openingFragment -> hideBottomNav()
-                R.id.signUpFragment -> hideBottomNav()
-                else -> showBottomNav()
-            }
-        }
 
 
 
