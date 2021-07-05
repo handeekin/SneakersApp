@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavAction
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -16,6 +17,7 @@ import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.handeekin.sneakersapp.databinding.ActivityMainBinding
 import com.handeekin.sneakersapp.entityy.CRUDResponse
+import com.handeekin.sneakersapp.fragments.CartFragment
 import com.handeekin.sneakersapp.fragments.OpeningFragment
 import com.handeekin.sneakersapp.repos.ItemsDAORepository
 import com.handeekin.sneakersapp.retrofits.APIUtils
@@ -31,15 +33,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var view : ActivityMainBinding
     private lateinit var udaoi: UsersDAOInterface
     private lateinit var idaoi: ItemsDAOInterface
     lateinit var sharedPreferences: SharedPreferences
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        view = ActivityMainBinding.inflate(layoutInflater)
         sharedPreferences = getSharedPreferences("Shared_pref",Context.MODE_PRIVATE)
 
 
@@ -48,9 +50,13 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNav : BottomNavigationView = findViewById(R.id.bottomNavView)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
 
         NavigationUI.setupWithNavController(bottomNav,navHostFragment.navController )
+
+        view.toolbarCartIcon.setOnClickListener {
+            navHostFragment.navController.navigate(R.id.cartFragment)
+        }
 
         navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when(destination.id){
@@ -79,6 +85,8 @@ class MainActivity : AppCompatActivity() {
             editor.apply()
 
             Toast.makeText(this,"Succesfully signed up!",Toast.LENGTH_SHORT).show()
+
+
 
         }
 */
